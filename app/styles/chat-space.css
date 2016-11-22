@@ -1,0 +1,39 @@
+.chat-space {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /*content*/
+  text-align: left;
+}
+.output {
+  padding: 5px 10px;
+}
+
+.chat-list {
+  border: 1px dashed grey; 
+}
+
+.input {
+  /*position*/
+  position: absolute;
+  bottom: 0;
+  /*outlook*/
+  width: 100%;
+  height: 70px;
+  background-color: black;
+  /*content*/
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 10px;
+}
+
+.input-bar {
+   /*outlook*/
+  height: 80%;
+  width: 100%;
+  /*content*/
+  padding: 5px 10px;
+}

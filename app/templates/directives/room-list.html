@@ -1,0 +1,16 @@
+<div class="room-list">
+  <table>
+    <tr>
+      <td>
+        <input type="text" placeholder="New Room" ng-model="room.name">
+      </td>
+      <td type="submit" ng-click="updateRoom(room)" value="Save">
+        <i class="fa fa-plus" aria-hidden="true"></i>
+      </td>
+    </tr>
+    <tr ng-repeat="room in RoomList">
+      <td>{{ room.name }}</td>
+      <td ng-click="removeRoom(room)"><i class="fa fa-times" aria-hidden="true"></i></td>
+    </tr>
+  </table>
+</div>
