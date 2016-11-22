@@ -1,0 +1,14 @@
+<section class="overlay">
+  <div class="overlay-content">
+    <div class="modal-header">
+      <h3 class="modal-title" id="modal-title">{{ room.name }}</h3>
+    </div>
+    <div class="modal-body" id="modal-body">
+      Switching to new room will destroy your current message.
+    </div>
+    <div class="modal-footer">
+      <div class= "modal-button-open" type="button" ng-click="$ctrl.ok()">Got It !</div>
+      <div class= "modal-button-cancel" type="button" ng-click="$ctrl.cancel()">Cancel</div>
+    </div>
+  </div>
+</section>

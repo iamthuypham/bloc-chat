@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html ng-app="blocChat">
+
 <head lang="en">
     <meta charset="UTF-8">
     <title>Bloc Chat</title>
@@ -7,13 +8,15 @@
     <link rel="stylesheet" type="text/css" href="styles/main.css">
     <link rel="stylesheet" type="text/css" href="styles/chat-space.css">
     <link rel="stylesheet" type="text/css" href="styles/room-list.css">
+    <link rel="stylesheet" type="text/css" href="styles/room-modal.css">
     <script src="https://use.fontawesome.com/c6823fad23.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/buzz/1.1.0/buzz.min.js"></script>
 </head>
+
 <body>
-    
+
     <ui-view></ui-view>
-    
+
     <!-- Angular -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
     <!-- Firebase -->
@@ -22,9 +25,14 @@
     <script src="https://cdn.firebase.com/libs/angularfire/2.0.1/angularfire.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
     <script src="/scripts/initialize/Firebase.js"></script>
+    <!--jQuery-->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <!--Bootstrap-->
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.14.1.js"></script>
     <script src="/scripts/app.js"></script>
     <script src="/scripts/directives/ChatSpace.js"></script>
     <script src="/scripts/directives/RoomList.js"></script>
     <script src="/scripts/services/Room.js"></script>
 </body>
+
 </html>
