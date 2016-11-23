@@ -4,8 +4,8 @@
     return {
       templateUrl: '/templates/directives/room-list.html',
       restrict: 'E',
-      scope: {},
-      link: function(scope, element, attributes) {
+      scope: true,
+      link: function(scope, element, attrs) {
         //@var for tasks array
         var roomArray = Room.all;
         scope.roomList = roomArray;
@@ -29,16 +29,22 @@
           }
           /**
            * @func openRoom
-           * @desc 1) open a chat space using its index
+           * @desc 1) call a uibModal warning 2) open a chat room
            */
         scope.openRoom = function(room) {
-          $rootScope.room = angular.copy(room);
-          $uibModal.open({
+          //Used to call room's info outside of scope
+          $rootScope.room = angular.copy(room); 
+          //Ensure room name in room-list is not affected
+          scope.room = '';
+          //Call a modal which is popup message asking for confirmation
+          //1) open new room or 2) back to current room
+          $rootScope.modalInstance = $uibModal.open({
             appendTo: $document.find('body'),
             ariaLabelledBy: 'modal-title',
             ariaDescribedBy: 'modal-body',
             templateUrl: '/templates/controllers/room-modal.html',
           });
+          //Open the room
         };
 
 
