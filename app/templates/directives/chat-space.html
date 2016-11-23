@@ -1,21 +1,12 @@
 <div class="output">
-  <table class="chat-list">
+  <table class="chat-list" ng-repeat="message in messageList">
     <tr>
-      <th>Mike D.</th>
-      <th>8:09pm</th>
-    </tr>
-    <tr>
-      <td>Hey? What's up?</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>
-      </td>
-      <td>
-      </td>
+      <td>{{ message.content }}</td>
+      <td>{{ message.sentAt }}</td>
     </tr>
   </table>
 </div>
 <div class="input">
-  <input class="input-bar" type="text">
+  <input class="input-bar" type="text" ng-model="message.content">
+  <button type="submit" ng-click="enterMessage(message)" value="Save"></button>
 </div>

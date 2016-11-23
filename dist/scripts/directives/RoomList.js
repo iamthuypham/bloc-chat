@@ -1,14 +1,19 @@
 (function() {
 
   function RoomList(Room, $uibModal, $document, $rootScope) {
+    $rootScope.currentRoomId = null;
     return {
       templateUrl: '/templates/directives/room-list.html',
       restrict: 'E',
-      scope: true,
+      scope: {
+        onChange: '&'
+      },
       link: function(scope, element, attrs) {
+
         //@var for tasks array
         var roomArray = Room.all;
         scope.roomList = roomArray;
+        scope.value = null;
         /**
          * @func updateRoom
          * @desc 1) read user input 2) write to database 3)reset input field to default
@@ -33,21 +38,38 @@
            */
         scope.openRoom = function(room) {
           //Used to call room's info outside of scope
-          $rootScope.room = angular.copy(room); 
+          $rootScope.room = angular.copy(room);
           //Ensure room name in room-list is not affected
           scope.room = '';
           //Call a modal which is popup message asking for confirmation
-          //1) open new room or 2) back to current room
           $rootScope.modalInstance = $uibModal.open({
             appendTo: $document.find('body'),
             ariaLabelledBy: 'modal-title',
             ariaDescribedBy: 'modal-body',
             templateUrl: '/templates/controllers/room-modal.html',
           });
-          //Open the room
         };
-
-
+        //When user makes decision on Modal, ModalCtrl will call one of these function
+        //1) switch to clicked room or 2) stay at current room
+        scope.stayRoom = function() {
+          $rootScope.modalInstance.dismiss('cancel');
+        }
+        scope.$on('stayRoom', function() {
+          scope.stayRoom()
+        });
+        scope.switchRoom = function() {
+          $rootScope.currentRoomId = $rootScope.room.$id;
+          
+          $rootScope.modalInstance.dismiss('cancel');
+          
+          console.log($rootScope.currentRoomId)
+          
+          $rootScope.$broadcast('loadMessage')
+        };
+        scope.$on('switchRoom', function(event, data) {
+          scope.switchRoom()
+        });
+        
       }
     };
   }
