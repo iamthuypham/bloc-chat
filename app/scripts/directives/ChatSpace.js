@@ -20,7 +20,7 @@
           //Prepare the message info
           scope.message.sentAt = '9:00';
           scope.message.roomId = $rootScope.currentRoomId    
-          scope.message.username = 'Rosa'
+          scope.message.username = 'Me'
 
           //Ensure message is valid and content is not null
           if (scope.message && scope.message.content) {

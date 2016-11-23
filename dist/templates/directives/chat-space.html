@@ -1,8 +1,13 @@
 <div class="output">
   <table class="chat-list" ng-repeat="message in messageList">
     <tr>
-      <td>{{ message.content }}</td>
-      <td>{{ message.sentAt }}</td>
+      <td>
+        <div><strong>{{ message.username }}</strong></div>
+        <div>{{message.content}}</div>
+      </td>
+      <td>
+        {{ message.sentAt }}
+      </td>
     </tr>
   </table>
 </div>
