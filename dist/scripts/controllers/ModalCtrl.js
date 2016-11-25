@@ -9,6 +9,10 @@
     $scope.cancel = function() {
       $rootScope.$broadcast('stayRoom')
     }
+    
+    $scope.set = function(value) {
+      $rootScope.$broadcast('setUsername', { username: value })
+    }
   }
   angular
     .module('blocChat')

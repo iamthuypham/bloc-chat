@@ -1,6 +1,6 @@
 (function() {
 
-  function ChatSpace(Message, $rootScope) {
+  function ChatSpace(Message, $rootScope, $cookies, $uibModal, $document) {
     return {
       templateUrl: '/templates/directives/chat-space.html',
       restrict: 'E',
@@ -8,7 +8,7 @@
       link: function(scope, element, attributes) {
         var messageArray = null;
 
-    
+
         scope.messageList = null;
 
         /**
@@ -19,7 +19,7 @@
 
           //Prepare the message info
           scope.message.sentAt = '9:00';
-          scope.message.roomId = $rootScope.currentRoomId    
+          scope.message.roomId = $rootScope.currentRoomId
           scope.message.username = 'Me'
 
           //Ensure message is valid and content is not null
@@ -42,6 +42,47 @@
         scope.$on('loadMessage', function() {
           scope.loadMessage($rootScope.currentRoomId)
         })
+        
+        /**
+         * @func askSetUsername
+         * @desc 1) prompt to user-modal to set username
+         */
+        var askSetUsername = function() {
+          $rootScope.modalUsername = $uibModal.open({
+            appendTo: $document.find('body'),
+            ariaLabelledBy: 'modal-title',
+            ariaDescribedBy: 'modal-body',
+            templateUrl: '/templates/controllers/user-modal.html'
+          })
+        }
+        var currentUser = $cookies.get('blocChatCurrentUser');
+        if (!currentUser || currentUser === '') {
+          askSetUsername();
+        }
+        console.log(currentUser)
+        /**
+         * @func setUsername
+         * @desc 1) get input username from user 2) cancel the modal
+         */
+        scope.setUsername = function(username) {
+          if (username) {
+            currentUser = username
+            $cookies.put('blocChatCurrentUser',username)
+            $rootScope.modalUsername.dismiss('cancel');
+            
+          }
+        }
+        scope.$on('setUsername', function(event, args) {
+          scope.setUsername(args.username)
+        })
+        /**
+         * @func setUsername
+         * @desc 1) remove currentUser in cookies 2) prompt user to modal setUsername
+         */
+        scope.reset = function() {
+          $cookies.remove('blocChatCurrentUser');
+          askSetUsername();
+        }
       }
     }
   }
