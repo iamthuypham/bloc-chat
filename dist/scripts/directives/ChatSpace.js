@@ -18,16 +18,14 @@
         scope.enterMessage = function(message) {
 
           //Prepare the message info
-          scope.message.sentAt = '9:00';
+          scope.message.sentAt = Date.now();
           scope.message.roomId = $rootScope.currentRoomId
-          scope.message.username = 'Me'
+          scope.message.username = currentUser;
 
           //Ensure message is valid and content is not null
-          if (scope.message && scope.message.content) {
-            scope.message = angular.copy(message);
-            messageArray.$add(scope.message);
-            scope.message = '';
-          };
+          Message.send(message, messageArray);
+          scope.message = '';
+          console.log(messageArray)
         };
 
         /**
