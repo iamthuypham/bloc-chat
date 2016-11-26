@@ -6,7 +6,7 @@
         <div>{{message.content}}</div>
       </td>
       <td>
-        {{ message.sentAt | date: 'M/d hh:mm' }}
+        {{ message.sentAt | timecode }}
       </td>
     </tr>
   </table>
