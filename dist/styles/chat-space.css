@@ -3,21 +3,22 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   /*content*/
   text-align: left;
 }
 .output {
   padding: 5px 10px;
 }
-
+.output td:last-child {
+  width: 100px;
+}
 .chat-list {
   border: 1px dashed grey; 
 }
 
 .input {
   /*position*/
-  position: absolute;
   bottom: 0;
   /*outlook*/
   width: 100%;
@@ -36,8 +37,17 @@
   color: white;
   margin-bottom: 10px;
 }
-.current-room-name, .sign-out:hover {
+.current-room-name {
+  color: #0ad300;
+}
+
+.sign-out {
+  color: #ff7b00;
+}
+
+.current-room-name:hover ,.sign-out:hover{
   cursor: pointer;
+  color: white;
 }
 
 .input-bar {
