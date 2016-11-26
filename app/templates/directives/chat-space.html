@@ -1,5 +1,4 @@
 <div class="output">
-  <div ng-click="reset()">Sign Out</div>
   <table class="chat-list" ng-repeat="message in messageList">
     <tr>
       <td>
@@ -13,6 +12,9 @@
   </table>
 </div>
 <div class="input">
-  <input class="input-bar" type="text" ng-model="message.content">
-  <button type="submit" ng-click="enterMessage(message)" value="Save"></button>
+  <div class="info">
+    <div class="current-room-name">{{ currentRoom }} </div>
+    <div class="sign-out" ng-click="reset()">Sign Out</div>
+  </div>
+  <textarea class="input-bar" type="text" ng-model="message.content" enter-key="enterMessage(message)">
 </div>

@@ -21,19 +21,27 @@
   bottom: 0;
   /*outlook*/
   width: 100%;
-  height: 70px;
+  height: 120px;
   background-color: black;
   /*content*/
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 10px;
+  padding: 10px 2%;
 }
-
+.info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: white;
+  margin-bottom: 10px;
+}
+.info div:hover {
+  cursor: pointer;
+}
 .input-bar {
+  margin:0;
    /*outlook*/
-  height: 80%;
+  height: 100%;
   width: 100%;
-  /*content*/
-  padding: 5px 10px;
 }

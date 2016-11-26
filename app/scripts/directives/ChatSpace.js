@@ -1,16 +1,15 @@
 (function() {
 
-  function ChatSpace(Message, $rootScope, $cookies, $uibModal, $document) {
+  function ChatSpace(Room, Message, $rootScope, $cookies, $uibModal, $document) {
     return {
       templateUrl: '/templates/directives/chat-space.html',
       restrict: 'E',
       scope: {},
       link: function(scope, element, attributes) {
         var messageArray = null;
-
-
         scope.messageList = null;
-
+        scope.currentRoom = 'Chatroom List';
+        
         /**
          * @func enterMessage
          * @desc 1) enter a new message
@@ -33,6 +32,7 @@
          * @desc 1) load messages after user switch room
          */
         scope.loadMessage = function(id) {
+          scope.currentRoom = $rootScope.room.name + " Room";
           scope.messageList = ''; //reset messageList
           messageArray = Message.getByRoomId(id); //make new query of the chosen room
           scope.messageList = messageArray;
@@ -40,7 +40,6 @@
         scope.$on('loadMessage', function() {
           scope.loadMessage($rootScope.currentRoomId)
         })
-        
         /**
          * @func askSetUsername
          * @desc 1) prompt to user-modal to set username
@@ -57,7 +56,6 @@
         if (!currentUser || currentUser === '') {
           askSetUsername();
         }
-        console.log(currentUser)
         /**
          * @func setUsername
          * @desc 1) get input username from user 2) cancel the modal
@@ -81,6 +79,7 @@
           $cookies.remove('blocChatCurrentUser');
           askSetUsername();
         }
+        
       }
     }
   }

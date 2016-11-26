@@ -22,7 +22,7 @@
      padding: 5px 10px;
  }
  
- input {
+ input, textarea {
      outline: none;
      border: 1px solid #cecece;
      border-radius: 3px;

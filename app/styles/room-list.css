@@ -1,8 +1,20 @@
-.room-list {
+.menu {
   position: absolute;
   width: 100%;
   height: 200px;
   bottom: -200px;
   background-color: pink;
   color: black;
+}
+.room-list td {
+  cursor: pointer;
+}
+
+/*sliding animation for menu*/
+.slideDown {
+  transition: all cubic-bezier(0.250, 0.60, 0.450, 0.940) 1s;
+}
+
+.slideDown {
+  bottom: 0;
 }
