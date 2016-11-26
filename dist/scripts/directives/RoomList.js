@@ -14,6 +14,7 @@
         var roomArray = Room.all;
         scope.roomList = roomArray;
         scope.value = null;
+        scope.pull = false;
         /**
          * @func updateRoom
          * @desc 1) read user input 2) write to database 3)reset input field to default
@@ -53,21 +54,27 @@
         //1) switch to clicked room or 2) stay at current room
         scope.stayRoom = function() {
           $rootScope.modalInstance.dismiss('cancel');
+          scope.pull = false;
         }
         scope.$on('stayRoom', function() {
           scope.stayRoom()
         });
         scope.switchRoom = function() {
           $rootScope.currentRoomId = $rootScope.room.$id;
-          
           $rootScope.modalInstance.dismiss('cancel');
-          
-          console.log($rootScope.currentRoomId)
-          
+          scope.pull = false;
           $rootScope.$broadcast('loadMessage')
         };
         scope.$on('switchRoom', function(event, data) {
           scope.switchRoom()
+        });
+        
+        
+        scope.pullList = function() {
+          scope.pull = true;
+        }
+        scope.$on('pullList', function() {
+          scope.pullList()
         });
         
       }

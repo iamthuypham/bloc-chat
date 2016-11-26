@@ -80,6 +80,10 @@
           askSetUsername();
         }
         
+        scope.pullList = function() {
+          $rootScope.$broadcast('pullList');
+          console.log('fire in chatSpace')
+        }
       }
     }
   }
