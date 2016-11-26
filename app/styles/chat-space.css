@@ -36,9 +36,10 @@
   color: white;
   margin-bottom: 10px;
 }
-.info div:hover {
+.current-room-name, .sign-out:hover {
   cursor: pointer;
 }
+
 .input-bar {
   margin:0;
    /*outlook*/

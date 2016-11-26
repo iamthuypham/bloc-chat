@@ -14,7 +14,7 @@
 <div class="input">
   <div class="info">
     <div class="current-room-name" ng-click="pullList()">{{ currentRoom }} </div>
-    <div class="sign-out" ng-click="reset()">Sign Out</div>
+    <div><span>Signed in as {{ currentUser }}</span><span class="sign-out" ng-click="reset()"> | Sign Out</span></div>
   </div>
   <textarea class="input-bar" type="text" ng-model="message.content" enter-key="enterMessage(message)">
 </div>

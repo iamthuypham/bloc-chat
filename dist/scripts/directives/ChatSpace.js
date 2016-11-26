@@ -9,7 +9,7 @@
         var messageArray = null;
         scope.messageList = null;
         scope.currentRoom = 'Chatroom List';
-        
+        scope.currentUser = null;
         /**
          * @func enterMessage
          * @desc 1) enter a new message
@@ -55,6 +55,8 @@
         var currentUser = $cookies.get('blocChatCurrentUser');
         if (!currentUser || currentUser === '') {
           askSetUsername();
+        } else {
+          scope.currentUser = currentUser;
         }
         /**
          * @func setUsername
@@ -63,6 +65,7 @@
         scope.setUsername = function(username) {
           if (username) {
             currentUser = username
+            scope.currentUser = username
             $cookies.put('blocChatCurrentUser',username)
             $rootScope.modalUsername.dismiss('cancel');
             
