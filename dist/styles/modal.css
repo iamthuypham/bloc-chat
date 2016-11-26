@@ -18,6 +18,7 @@
   background-color: white;
   padding: 20px 5%;
 }
+
 .modal-footer {
   margin: 20px ;
 }
@@ -27,7 +28,6 @@
   color: white;
   padding: 5px 10px;
   border-radius: 3px;
-  width: 80px;
 }
 
 .modal-footer div:hover {
@@ -37,8 +37,10 @@
 
 .modal-button-open {
   background-color: #0ad300;
-  
 }
 .modal-button-cancel {
   background-color: #ff7b00;
+}
+.modal-button-username {
+  background-color: #0ad300;
 }
