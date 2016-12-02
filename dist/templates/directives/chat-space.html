@@ -1,0 +1,20 @@
+<div class="output">
+  <table class="chat-list" ng-repeat="message in messageList">
+    <tr>
+      <td>
+        <div><strong>{{ message.username }}</strong></div>
+        <div>{{message.content}}</div>
+      </td>
+      <td>
+        {{ message.sentAt | timecode }}
+      </td>
+    </tr>
+  </table>
+</div>
+<div class="input">
+  <div class="info">
+    <div class="current-room-name" ng-click="pullList()">{{ currentRoom }} </div>
+    <div><span>Signed in as {{ currentUser }}</span> | <span class="sign-out" ng-click="reset()">Sign Out</span></div>
+  </div>
+  <textarea class="input-bar" type="text" ng-model="message.content" enter-key="enterMessage(message)">
+</div>

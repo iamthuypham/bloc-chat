@@ -1,25 +1,45 @@
 <!DOCTYPE html>
 <html ng-app="blocChat">
+
 <head lang="en">
     <meta charset="UTF-8">
     <title>Bloc Chat</title>
     <link href="https://fonts.googleapis.com/css?family=Nunito|Open+Sans:600,800" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="styles/main.css">
+    <link rel="stylesheet" type="text/css" href="styles/chat-space.css">
+    <link rel="stylesheet" type="text/css" href="styles/room-list.css">
+    <link rel="stylesheet" type="text/css" href="styles/modal.css">
     <script src="https://use.fontawesome.com/c6823fad23.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/buzz/1.1.0/buzz.min.js"></script>
 </head>
+
 <body>
-    
+
     <ui-view></ui-view>
-    
+
     <!-- Angular -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-cookies.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-animate.js"></script>
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
     <!-- AngularFire -->
     <script src="https://cdn.firebase.com/libs/angularfire/2.0.1/angularfire.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
     <script src="/scripts/initialize/Firebase.js"></script>
+    <!--jQuery-->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <!--Bootstrap-->
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.14.1.js"></script>
     <script src="/scripts/app.js"></script>
-</body>
+    <script src="/scripts/directives/ChatSpace.js"></script>
+    <script src="/scripts/directives/RoomList.js"></script>
+    <script src="/scripts/directives/enterKey.js"></script>
+    <script src="/scripts/controllers/ModalCtrl.js"></script>
+    <!--<script src="/scripts/controllers/UserCtrl.js"></script>-->
+    <script src="/scripts/services/Room.js"></script>
+    <script src="/scripts/services/Message.js"></script>
+    <script src="/scripts/filters/timecode.js"></script>
+    </body>
+
 </html>
